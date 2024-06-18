@@ -14,6 +14,8 @@ module.exports = {
       "error",
       { allowConstantExport: true },
     ],
+    "max-lines-per-function": ["error", { "max": 30 }],
+    "@typescript-eslint/no-explicit-any": "error",
     "prefer-arrow-callback": "error",
     "func-style": ["error", "expression"],
     "prefer-const": "error",
