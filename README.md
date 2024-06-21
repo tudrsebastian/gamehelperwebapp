@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Game Helper Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Content
+* [Tech stack](tech-stack)
+* [Project Structure](project-structure)
+* [Coding standards](coding-standards)
+    - [Globally reusable functionalities](globally-reusable-functionalities)
+    - [Components structure](components-structure)
+* [Pull Request](pull-requests)
 
-Currently, two official plugins are available:
+### <a name="tech-stack"></a>Tech Stack
+* **Package Manager**: yarn
+* **Language**: TypeScript
+* **UI**: React.js
+* **Styling**: Tailwind CSS & SCSS
+* **Testing**: Jest & Cypress
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### <a name="project-structure"></a>Project Structure
+* **.husky:** contains all of the husky hooks used in this project
+* **.storybook:** storybook configuration
+* **cypress:** contains the integration & e2e tests
+* **public:** static assets
+* **src:** main codebase
 
-## Expanding the ESLint configuration
+### <a name="coding-standards"></a>Coding Standards
+#### <a name="exports"></a>Exports
+Please avoid default exports unless they are mandatory. Named exports provide consistency throughout the project by avoiding typos.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+#### <a name="globally-reusable-functionalities"></a>Globally reusable functionalities
+For globally reusable functionalities (hooks, contexts, utility functions) there is a dedicated folder in the main codebase (src folder).\
+Each hook/utility function should have a test file that has the ".test.ts" suffix that ensures the functionality is the desired one.\
+For hooks & utilities the kebab case will be used (my-custom-hook.ts, my-utility-fun.ts).\
 
-- Configure the top-level `parserOptions` property like this:
+#### <a name="components-structure"></a>Components structure
+Each component should have the ".tsx" suffix for consistency and for an easier file identification.\
+A component must have its own folder which contains the main file and a story file that has the ".stories.tsx" suffix.\
+A component can have a "hooks" folder, a "contexts" folders, a "utilities" folder that are specific to that component only. For those 3 folders the rules from [Globally reusable functionalities](globally-reusable-functionalities) apply, besides the location of those files, which as explained, will be in a dedicated folder inside the consuming component's folder.\
+Camel case (CamelCaseExample) will be used for the namings of the component's folder, main file and story.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### <a name="pull-requests"></a>Pull Request
+To do: Add description
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
