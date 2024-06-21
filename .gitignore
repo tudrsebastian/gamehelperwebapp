@@ -26,3 +26,5 @@ dist-ssr
 # Env files
 .env.*
 !.env.template
+
+*storybook.log
